@@ -6,3 +6,5 @@ Functions to implement
 * Add (to another image)
 
 ***All images must be regularized to be squares of the same height e.g. 500x500 pixels***
+
+cadfasdf
