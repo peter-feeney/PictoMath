@@ -3,6 +3,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dropzone.css">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>PictoMath</title>
@@ -19,25 +20,30 @@
         <h2 id = "caption" class="welcome_text">MATRIX OPERATIONS WITH IMAGES</h2>
         
         
-        
-        
-        
-        
-        
-        
-        
-        
+        <div id = "cent">
+            <div id = "wrapper-initial">
+                <!-- See dropzone website for more information/documentation-->
+                <form action="/upload-target" class="dropzone" id = "uploads">
+                    Upload images here
+                </form>               
+            </div> 
+
+        </div>
         
         <!-- Include links down here -->
-        <a href="mailto:pfeeney@umd.edu" class="contact">
-            <img src="close-envelope.png" alt="Contact Us" class="contact">
-        </a>
-        <a href="https://github.com/peter-feeney/PictoMath" class="github_link">
-            <img src="GitHub-Mark/PNG/GitHub-Mark-32px.png" alt="Github Link" class="github_link">
-        </a>    
+        
+            <a href="mailto:pfeeney@umd.edu" class="contact">
+                <img src="close-envelope.png" alt="Contact Us" class="contact">
+            </a>
+            &emsp; &emsp;
+            <a href="https://github.com/peter-feeney/PictoMath" class="github_link">
+                <img src="GitHub-Mark/PNG/GitHub-Mark-32px.png" alt="Github Link" class="github_link">
+            </a>   
         <script src="" async defer></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src = "backend.js"></script>
+        <script src="dropzone.js"></script>
     </body>
 
 
