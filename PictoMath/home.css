@@ -139,6 +139,14 @@ img.contact {
 }
 
 
+#oneImage {
+    display: none;
+}
+
+#twoImage {
+    display: none;
+}
+
 @keyframes slidein {
     from {
         margin-left:100%;
