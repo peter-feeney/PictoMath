@@ -1,5 +1,3 @@
-var picCount = 0;
-
 Dropzone.options.uploadWidget= {
   
   //Change default message and make sure users can only upload images.
@@ -24,8 +22,51 @@ Dropzone.options.uploadWidget= {
   }
 };
 
+$('#transpose').click(function() {
+  alert("You clicked transpose");
+});
 
 
+$('#svd').click(function() {
+  alert("You clicked svd");
+});
+
+$('#scalarMult').click(function() {
+  //Prompt user to give a scalar to multiply by
+  alert("You clicked scalar mult");
+});
+
+$('#inverse').click(function() {
+  alert("You clicked inverse");
+});
+
+$('#add').click(function() {
+  alert("You clicked add");
+});
+
+$('#multiply').click(function() {
+  alert("You clicked multiply");
+});
+
+function postImage(input) {
+  $.ajax({
+      type: "POST",
+      url: "functions.py",
+      data: { param: input },
+      success: callbackFunc
+  });
+}
+
+function callbackFunc(response) {
+    displayImage(response);
+    console.log("sucess");//remove later
+}
+
+function displayImage(processed_image) {
+  var img = document.createElement("IMG");
+  img.src = "images/"+processed_image;
+  document.getElementById('output').appendChild(img);
+}
 
 /* 
 Need to figure out way to restrict input to images. 
