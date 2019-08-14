@@ -1,12 +1,9 @@
 '''
-import statements
 
-Dependencies: (Use pip install x)
 
-pillow
-numpy
-matplotlib
+Style Suggestion: Each function takes a matrix and the rest of the image processing is done outside function.
 
+(e.g. functions only handle matrices)
 
 '''
 from PIL import Image
@@ -14,7 +11,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.image as im
 from numpy.linalg import inv
+from numpy.linalg import svd
 
+def add(img_mat1, img_mat2):
+    return img_mat1 + img_mat2
 
 '''
 Given img_path, resizes an image to 300 x 300
@@ -24,7 +24,8 @@ def im_resize(img_path):
     img = Image.open(img_path)
     return img.resize((300, 300))
 
-
+def svd(img_mat):
+    return svd(img_mat)
 '''
 Displays the transpose (90 degree flip)
 given the matrix corresponding to the image
@@ -34,11 +35,54 @@ def transpose(img_mat):
     img = Image.fromarray(img_mat)
     img.show()
 
+def scalar_mult(img_mat, scalar):
+    return scalar * img_mat
+
+def shear(img_mat, scalar):
+
 '''
 This function is redundant, but computes the inverse of a matrix
 '''
 def inverse(img_array):
     return inv(img_array)
+
+'''
+Given img_path, resizes an image to 300 x 300
+An additional param can be added to control image size, 
+but 300 x 300 is good for now
+'''
+def im_resize(img_path):
+    img = Image.open(img_path)
+    return img.resize((300, 300))
+
+def img_mult(img1, img2):
+    image1 = im_resize(img1)
+    image2 = im_resize(img2)
+
+    img_mat1 = np.asarray(image1, dtype=np.uint8)
+    img_mat2 = np.asarray(image2, dtype=np.uint8)
+    print(img_mat1)
+
+    img_product = img_mat1 * img_mat2
+    print(img_product)
+
+    pic = Image.fromarray(img_product)
+    pic.show()
+
+#Testing with some of old social media profile pictures
+#I got interesting results by multiplying an image by itself.
+img_mult('C:/Users/peter/Pictures/facebookprofile.jpg','C:/Users/peter/Pictures/profilePic.jpg')
+img_mult('C:/Users/peter/Pictures/profilePic.jpg','C:/Users/peter/Pictures/profilePic.jpg')
+
+
+
+
+
+
+
+
+
+
 
 
 

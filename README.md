@@ -1,9 +1,9 @@
 Functions to implement
 
-* Transpose
-* Inverse
-* Multiply (by another image)
-* Add (to another image)
+* Transpose ✓
+* Inverse ✓
+* Multiply (by another image) ✓
+* Add (to another image) ✓
 
 *Singular value decomposition
 
