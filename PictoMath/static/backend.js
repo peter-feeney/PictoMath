@@ -1,3 +1,6 @@
+var image1;
+var image2;
+
 Dropzone.options.uploadWidget= {
   
   //Change default message and make sure users can only upload images.
@@ -10,12 +13,15 @@ Dropzone.options.uploadWidget= {
   },
   init: function() {
     this.on("addedfile", function() {
-      if (this.files[2] != null){
+      if (this.files[2] != null) {
+        image1 = this.files[0];
         this.removeFile(this.files[0]);
       } else if (this.files[1] != null) {
+        image2 = this.files[1];
         $('#oneImage').toggle();
         $('#twoImage').toggle();
       } else if (this.files[0] != null) {
+        image1 = this.files[0];
         $('#oneImage').toggle();
       }
     });
@@ -23,21 +29,32 @@ Dropzone.options.uploadWidget= {
 };
 
 $('#transpose').click(function() {
-  alert("You clicked transpose");
+  $.ajax({
+    type: "POST",
+    url: "/transpose",
+    data: {input: 1},
+    success: function(response) {
+      alert("Succesful");
+      //displayImage(response);
+      //console.log("success");//remove later
+    }
+});
+
+  //postImage(image1, "/transpose");
 });
 
 
 $('#svd').click(function() {
-  alert("You clicked svd");
+  postImage(image1, "/svd");
 });
 
 $('#scalarMult').click(function() {
   //Prompt user to give a scalar to multiply by
-  alert("You clicked scalar mult");
+  postImage(image1, "/scalarMult");
 });
 
 $('#inverse').click(function() {
-  alert("You clicked inverse");
+  postImage(image1, "/inverse");
 });
 
 $('#add').click(function() {
@@ -48,19 +65,19 @@ $('#multiply').click(function() {
   alert("You clicked multiply");
 });
 
-function postImage(input) {
+function postImage(input, theUrl) {
   $.ajax({
       type: "POST",
-      url: "functions.py",
-      data: { param: input },
-      success: callbackFunc
+      url: "/transpose",
+      data: {input: 1},
+      success: function(response) {
+        alert("Succesful");
+        //displayImage(response);
+        //console.log("success");//remove later
+      }
   });
 }
 
-function callbackFunc(response) {
-    displayImage(response);
-    console.log("sucess");//remove later
-}
 
 function displayImage(processed_image) {
   var img = document.createElement("IMG");

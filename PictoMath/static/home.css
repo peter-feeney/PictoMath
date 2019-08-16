@@ -1,0 +1,160 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+     height: calc(100% - 1em);
+     width: calc(100% - 1em);
+    /* Location of the image */
+    background-image: url(background.png);
+        
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+        
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+        
+    /* Background image is fixed in the viewport so that it doesn't move when 
+    the content's height is greater than the image's height */
+    background-attachment: fixed;
+        
+    /* This is what makes the background image rescale based
+    on the container's size */
+    background-size: cover;
+        
+    /* Set a background color that will be displayed
+    while the background image is loading */
+    background-color: #cc0000;
+}
+
+
+
+img.bg {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#cent {
+    z-index: 1;
+    border-radius: 25px;
+    /* background-image: url(white_box.png); */
+    text-align: center;
+    background: #FFEFBA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+        
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    /* Background image is fixed in the viewport so that it doesn't move when 
+    the content's height is greater than the image's height */
+    background-attachment: fixed;
+        
+    /* This is what makes the background image rescale based
+    on the container's size */
+    background-size: cover;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 70%;
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid #CD3636;
+}
+
+
+#wrapper-initial {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#upload-initial {
+    text-align: center;
+    display: block;
+    width: 300px;
+    height: 20%;
+}
+
+.welcome_text {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    font-family: 'Fugaz One', cursive;
+    animation-duration: 2s;
+    animation-name: slidein;
+    top: 0%;
+}
+
+#title {
+    font-size: 400%;
+    top: 0%;
+    margin: 0 auto;
+}
+
+#links {
+    z-index: 1;
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 95%;
+    margin: 0 auto;
+    width: 100px; 
+    bottom: 5%;
+    margin: 0%; 
+}
+
+
+img.github_link {
+    z-index: 1;
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 48%;
+    right: 52%;
+    margin: 0%;
+}
+
+img.contact {
+    z-index: 1;
+    position: absolute;
+    bottom: 5%;
+    left: 52%;
+    right: 48%;
+    height: 32px;
+    width: 32px;
+    margin: 0%;
+}
+
+
+#oneImage {
+    display: none;
+}
+
+#twoImage {
+    display: none;
+}
+
+@keyframes slidein {
+    from {
+        margin-left:100%;
+        width:300%
+      }
+      
+      to {
+        margin-left:0%;
+        width:100%;
+      }
+}
