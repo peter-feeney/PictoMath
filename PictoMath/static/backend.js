@@ -30,7 +30,7 @@ Dropzone.options.uploadWidget= {
 
 $('#transpose').click(function() {
   $.ajax({
-    type: "POST",
+    type: "GET",
     url: "/transpose",
     data: {input: 1},
     success: function(response) {
